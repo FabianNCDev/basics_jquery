@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Moving left with Jquery</title>
+    <script src="https://code.jquery.com/jquery-2.1.0.js"></script>
+  </head>
+  <body>
+
+    <h1 id="heading">Hello World</h1>
+
+
+    <script>
+
+      // moving heading
+      var leftOffset = 0;
+
+      var moveHeading = function () {
+        $('#heading').offset({left: leftOffset});
+
+        leftOffset++;
+
+        if (leftOffset > 200) {
+          leftOffset = 0;
+        }
+      }
+
+      setInterval(moveHeading, 30);
+
+      // click eveng heading
+      var clickHandler = function (event) {
+        console.log('Click! ' + event.pageX + ' ' + event.pageY);
+      }
+
+      $('h1').click(clickHandler);
+
+    </script>
+  </body>
+</html>
